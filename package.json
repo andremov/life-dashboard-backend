@@ -1,0 +1,17 @@
+{
+  "name": "node-rest-api",
+  "version": "1.0.0",
+  "description": "node-rest-api",
+  "main": "index.js",
+  "scripts": {
+    "nodemon-start": "nodemon server.js",
+    "start": "node server",
+    "api-doc": "apidoc -i api/ -o docs/"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.7",
+    "morgan": "^1.10.0"
+  }
+}
