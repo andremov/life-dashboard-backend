@@ -4,10 +4,10 @@ const mongoose = require('mongoose');
 const morgan = require('morgan'); // LOGGING
 const bodyParser = require('body-parser'); // BODY PARSING
 
+const CLUSTER = 'cluster0.7yufz.mongodb.net'
+
 mongoose.connect(
-    'mongodb+srv://' +
-    process.env.MONGO_USER + ':' + process.env.MONGO_PASS +
-    '@node-rest-api-test-byh61.mongodb.net/test?retryWrites=true&w=majority',
+    `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${CLUSTER}/main-db?retryWrites=true&w=majority`,
     {
         useNewUrlParser : true,
         useUnifiedTopology : true
@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(( req, res, next ) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', '*');
-    
+
     if ( req.method === 'OPTIONS' ) {
         res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
         return res.status(200).json({});
